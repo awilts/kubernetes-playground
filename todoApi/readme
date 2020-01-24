@@ -1,0 +1,29 @@
+docker build:
+docker build --tag myapi .
+docke run:
+docker run -p 3000:3000 myapi
+kubectl create deployment redis --image=redis:latest
+kubectl run myapi --image=myapi --image-pull-policy=Never
+kubectl expose deployment myapi --type=LoadBalancer --port=3000
+
+
+
+------------------------------------------------------------------------------
+
+#Delete old minikube
+minikube delete
+
+#Start new minikube
+minikube start
+
+#Use minikubes docker registry
+eval $(minikube docker-env)
+
+#build docker image (and store it in minikubes docker registry)
+docker build --tag myapi .
+
+------------------------------------------------------------------------------
+Declarative Management of Kubernetes Objects Using Configuration Files
+------------------------------------------------------------------------------
+kubectl apply -f todoapi_deployment.yaml
+kubectl apply -f todoapi_service.yaml
