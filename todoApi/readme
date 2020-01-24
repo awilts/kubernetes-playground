@@ -16,6 +16,9 @@ minikube delete
 #Start new minikube
 minikube start
 
+#Fake a LB with tunnel
+minikube tunnel
+
 #Use minikubes docker registry
 eval $(minikube docker-env)
 

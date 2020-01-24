@@ -3,7 +3,8 @@ const redis = require("redis");
 const { promisify } = require('util');
 
 // const client = redis.createClient();
-const client = redis.createClient("redis");
+// const client = redis.createClient(6379, "redis-master");
+const client = redis.createClient(6379, "172.17.0.6");
 const getAsync = promisify(client.get).bind(client);
 
 //Redis connection
