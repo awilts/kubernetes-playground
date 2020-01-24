@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: hello
 spec:
+  #What does this do?
   selector:
     matchLabels:
       app: hello
@@ -13,6 +14,7 @@ spec:
     metadata:
       labels:
         app: hello
+        #What is this good for?
         track: stable
     spec:
       containers:

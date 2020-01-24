@@ -1,0 +1,29 @@
+#Delete old minikube
+minikube delete
+
+#Start new minikube
+minikube start
+
+#Fake a LB with tunnel as minikube does not come with LBs by default
+minikube tunnel
+
+#Admin dashboard
+minikube dashboard
+
+#Use minikubes docker registry
+eval $(minikube docker-env)
+
+#build docker image (and store it in minikubes docker registry)
+docker build --tag myapi ../todoApi
+
+------------------------------------------------------------------------------
+Declarative Management of Kubernetes Objects Using Configuration Files
+------------------------------------------------------------------------------
+#apply all kubernetes templates(name?) in folder todoDeployments
+kubectl apply -f .
+
+#Shutdown minikube
+minikube delete
+
+#Clean up tunnel
+minikube tunnel --cleanup
